@@ -1,0 +1,14 @@
+{
+  "name": "omnifocus-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Tomyail/omnifocus-extension.git",
+  "author": "xuexin <tomyail1989@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs": "docsify serve ./"
+  },
+  "devDependencies": {
+    "docsify": "^4.9.4"
+  }
+}
