@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "docsify": "^4.9.4"
+  },
+  "dependencies": {
+    "applescript": "^1.0.0"
   }
 }
