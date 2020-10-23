@@ -2,12 +2,12 @@
     "author": "Author Name",
     "targets": ["omnifocus"],
     "type": "action",
-    "identifier": "com.mycompany.给选中 task标题增加项目名称",
+    "identifier": "com.mycompany.删除选中 task标题中的项目名称",
     "version": "0.1",
     "description": "A plug-in that...",
-    "label": "给选中 task标题增加项目名称",
-    "mediumLabel": "给选中 task标题增加项目名称",
-    "paletteLabel": "给选中 task标题增加项目名称",
+    "label": "删除选中 task标题中的项目名称",
+    "mediumLabel": "删除选中 task标题中的项目名称",
+    "paletteLabel": "删除选中 task标题中的项目名称",
 }*/
 (() => {
   var action = new PlugIn.Action(function (selection) {
@@ -18,11 +18,10 @@
     const reduced = lib.getFlattenTasks(target);
     reduced.forEach((task) => {
       if (
-        task.containingProject &&
         //匹配任意的(*):
-        !task.name.match(/\([\s\S]+\):/g)
+        task.name.match(/\([\s\S]+\):/g)
       ) {
-        task.name = `(${task.containingProject.name}):${task.name}`;
+        task.name = task.name.replace(task.name.match(/\([\s\S]+\):/g)[0], '');
       }
     });
   });
