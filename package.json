@@ -9,7 +9,7 @@
     "docs": "docsify serve ./"
   },
   "devDependencies": {
-    "docsify": "4.9.4"
+    "docsify": "4.11.6"
   },
   "dependencies": {
     "applescript": "^1.0.0"
