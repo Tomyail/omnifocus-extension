@@ -17,6 +17,14 @@
     const lib = libFile.library('omnifocus-lib');
     const reduced = lib.getFlattenTasks(target);
     reduced.forEach((task) => {
+      //首先清理老的名称
+      if (
+        //匹配任意的(*):
+        task.name.match(/\([\s\S]+\):/g)
+      ) {
+        task.name = task.name.replace(task.name.match(/\([\s\S]+\):/g)[0], '');
+      }
+      //然后更新新的名称
       if (
         task.containingProject &&
         //匹配任意的(*):
