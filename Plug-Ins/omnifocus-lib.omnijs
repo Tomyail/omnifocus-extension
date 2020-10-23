@@ -1,0 +1,60 @@
+/*{
+	"type": "library",
+	"targets": ["omnifocus"],
+	"identifier": "com.omni-automation.of.exampleLibrary",
+	"author": "Otto Automator",
+	"version": "1.0",
+	"description": "An example library for OmniFocus"
+}*/
+(() => {
+	var lib = new PlugIn.Library(new Version('1.0'));
+  
+	/**
+	 * 递归遍历给定的 task,直到其没有子 task
+	 * @param task
+	 */
+	const getTasks = task =>
+	  task.hasChildren ? task.children.map(t => getTasks(t)) : task;
+	/**
+	 * 打平一个嵌套的 task 列表
+	 * @param cur
+	 * @param collector
+	 */
+	const reduce = (cur, collector) => {
+	  if (Array.isArray(cur)) {
+		cur.forEach(item => {
+		  reduce(item, collector);
+		});
+	  } else {
+		collector.push(cur);
+	  }
+	  return collector;
+	};
+  
+	lib.getFlattenTasks = function(tasks) {
+	  return reduce(
+		tasks.map(task => getTasks(task)),
+		[]
+	  );
+	};
+
+	lib.info = (message) => {
+		new Alert('info', message).show();
+	}
+  
+	lib.toggleFlagsForTasks = function(tasks) {
+	  tasks.forEach(task => {
+		task.flagged = !task.flagged;
+	  });
+	};
+  
+	return lib;
+  })();
+  
+  /* How to call from scripts
+		  // NOTE: the following assumes the library was saved as: "omnifocus-lib.omnijs"
+		  var libFile = PlugIn.find("com.omni-automation.of.exampleLibrary")
+		  var lib = libFile.library("omnifocus-lib")
+		  lib.countOfInbox()
+	  */
+  

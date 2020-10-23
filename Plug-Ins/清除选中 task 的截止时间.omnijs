@@ -1,0 +1,24 @@
+/*{
+    "author": "Tomyail",
+    "targets": ["omnifocus"],
+    "type": "action",
+    "identifier": "com.mycompany.清楚选中 task 的截止时间",
+    "version": "0.1",
+    "description": "A plug-in that",
+    "label": "清除选中 task 的截止时间",
+    "mediumLabel": "清除选中 task 的截止时间",
+    "paletteLabel": "清除选中 task 的截止时间",
+}*/
+(() => {
+  var action = new PlugIn.Action(function (selection) {
+    if (!selection.tasks.length) {
+      new Alert('info', `no task selected`).show();
+    }
+    const target = selection.tasks;
+    const libFile = PlugIn.find('com.omni-automation.of.exampleLibrary');
+    const lib = libFile.library('omnifocus-lib');
+    lib.getFlattenTasks(target).forEach((task) => (task.dueDate = null));
+  });
+
+  return action;
+})();
