@@ -9,3 +9,11 @@ TODO
 
 [ ] 项目分成脚本项目和执行项目。 脚本项目的源码是ts，包含自动编译。 编译后的文件可以直接被导入到omnifocus 使用。 或者被执行项目使用。
 [ ] 执行项目可以作为对外的omnifocus 微服务使用。
+[ ] @types/omnifocus
+
+
+
+## Resource
+
+* [JXA-Cookbook](https://github.com/JXA-Cookbook/JXA-Cookbook/wiki): Cookbook for JavaScript for Automation
+* [JXA](https://github.com/JXA-userland/JXA): JavaScript for Automation(JXA) packages for TypeScript/Node.js.
