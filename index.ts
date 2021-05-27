@@ -12,6 +12,7 @@ import { run } from "@jxa/run";
 import hello from "./om-scripts/bundle";
 import fs from "fs";
 import a from './om-scripts/a'
+//https://github.com/pahund/patricks-little-jxa-helpers/blob/master/src/plugin/jxa-plugin.js
 
 export const currentUserName = () => {
   console.log(a)
