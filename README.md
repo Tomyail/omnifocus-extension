@@ -17,3 +17,4 @@ TODO
 
 * [JXA-Cookbook](https://github.com/JXA-Cookbook/JXA-Cookbook/wiki): Cookbook for JavaScript for Automation
 * [JXA](https://github.com/JXA-userland/JXA): JavaScript for Automation(JXA) packages for TypeScript/Node.js.
+* [node-jxa](https://github.com/johnelm/node-jxa): Use your favorite node.js modules (and JS editor) for your Javascript OSX automation scripts

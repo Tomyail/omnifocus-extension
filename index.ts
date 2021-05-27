@@ -8,9 +8,14 @@
 
 import "@jxa/global-type";
 import { run } from "@jxa/run";
-import hello from "./om-scripts/hello";
+// import hello from "./om-scripts/hello";
+import hello from "./om-scripts/bundle";
+import fs from "fs";
+import a from './om-scripts/a'
 
 export const currentUserName = () => {
+  console.log(a)
+  const x = fs.readFileSync("./om-scripts/a.js", "utf-8");
   // This callback function is run as JXA
   return run((foo) => {
     // Omni Automation script written as a function
@@ -56,7 +61,8 @@ export const currentUserName = () => {
     //applescript 里面叫 evaluate javascript , 转成 jxa 就是驼峰式的命名转换
     // hello.toString()(this)
     // return om.evaluateJavascript("flattenedTasks[0].name")
-    return om.evaluateJavascript(`var foo = ${foo};foo(this)`);
+    // return om.evaluateJavascript(`window = this;var foo = ${foo};foo(this)`);
+    return om.evaluateJavascript(`${foo}`);
 
     // var doc = om.defaultDocument;
     // var matchingProjects = doc.tagsMatching;
@@ -68,7 +74,7 @@ export const currentUserName = () => {
     // return om.running();
     // const sys = Application("System Events");
     // return sys.currentUser().name();
-  }, hello.toString());
+  }, x);
 };
 
 // Main code is Node.js
