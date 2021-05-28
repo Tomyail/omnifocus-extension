@@ -32,6 +32,6 @@
     "tsify": "^5.0.4"
   },
   "omnifocus": {
-    "plugDir": "./omni-plugins"
+    "plugDir": "./src"
   }
 }
