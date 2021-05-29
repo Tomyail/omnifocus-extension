@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@types/node": "15.6.1",
-    "docsify": "4.12.0",
+    "docsify": "4.12.1",
     "klaw-sync": "6.0.0",
     "loader-utils": "2.0.0",
     "terser-webpack-plugin": "5.1.2",
