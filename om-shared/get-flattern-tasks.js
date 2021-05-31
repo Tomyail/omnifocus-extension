@@ -1,8 +1,12 @@
-export const getFlattenTasks = function (tasks) {
+const getFlattenTasks = function (tasks) {
   return reduce(
     tasks.map((task) => getTasks(task)),
     []
   );
+};
+
+module.exports = {
+  getFlattenTasks,
 };
 
 /**

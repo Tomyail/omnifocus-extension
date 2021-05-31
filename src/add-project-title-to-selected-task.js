@@ -1,28 +1,22 @@
 /*{
-    "author": "Author Name",
     "targets": ["omnifocus"],
     "type": "action",
-    "identifier": "com.mycompany.给选中 task标题增加项目名称",
-    "version": "0.1",
-    "description": "A plug-in that...",
     "label": "给选中 task标题增加项目名称",
-    "mediumLabel": "给选中 task标题增加项目名称",
-    "paletteLabel": "给选中 task标题增加项目名称",
 }*/
 (() => {
+  const { getFlattenTasks } = require("../om-shared/get-flattern-tasks");
   var action = new PlugIn.Action(function (selection) {
     if (!selection.tasks.length) return;
     const target = selection.tasks;
-    const libFile = PlugIn.find('com.omni-automation.of.exampleLibrary');
-    const lib = libFile.library('omnifocus-lib');
-    const reduced = lib.getFlattenTasks(target);
+    const reduced = getFlattenTasks(target);
+
     reduced.forEach((task) => {
       //首先清理老的名称
       if (
         //匹配任意的(*):
         task.name.match(/\([\s\S]+\):/g)
       ) {
-        task.name = task.name.replace(task.name.match(/\([\s\S]+\):/g)[0], '');
+        task.name = task.name.replace(task.name.match(/\([\s\S]+\):/g)[0], "");
       }
       //然后更新新的名称
       if (

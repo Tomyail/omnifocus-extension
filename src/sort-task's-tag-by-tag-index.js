@@ -1,26 +1,17 @@
 /*{
-    "author": "Author Name",
     "targets": ["omnifocus"],
     "type": "action",
-    "identifier": "com.mycompany.按照标签次序排序所有task 里面 tag的次序",
-    "version": "0.1",
     "description": "按照标签次序排序所有task 里面 tag的次序",
     "label": "按照标签次序排序所有task 里面 tag的次序",
-    "mediumLabel": "按照标签次序排序所有task 里面 tag的次序",
-    "paletteLabel": "按照标签次序排序所有task 里面 tag的次序",
 }*/
 (() => {
+  const { getFlattenTasks } = require("../om-shared/get-flattern-tasks");
   var action = new PlugIn.Action(function (selection) {
-    // Add code to run when the action is invoked
     const target = selection.tasks.length ? selection.tasks : flattenedTasks;
     console.log(`loop ${target.length} items`);
-    const libFile = PlugIn.find('com.omni-automation.of.exampleLibrary');
-    const lib = libFile.library('omnifocus-lib');
-    const tagNames = lib
-      .getFlattenTasks(flattenedTags)
-      .map((item) => item.name);
+    const tagNames = getFlattenTasks(flattenedTags).map((item) => item.name);
 
-    const reduced = lib.getFlattenTasks(target).filter((x) => !x.completed);
+    const reduced = getFlattenTasks(target).filter((x) => !x.completed);
     let effectCount = 0;
     reduced.forEach((task) => {
       const tagMetas = task.tags
@@ -45,10 +36,6 @@
         task.addTags(sortedTags);
       }
     });
-
-    if (effectCount) {
-      lib.info(`${effectCount} items changed`);
-    }
   });
 
   return action;

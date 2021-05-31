@@ -6,7 +6,9 @@
   "author": "xuexin <tomyail1989@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "docs": "docsify serve ./"
+    "docs": "docsify serve ./",
+		"sync":"cp  -r dist/ ~/Library/Mobile\\ Documents/iCloud~com~omnigroup~OmniFocus/Documents/Plug-Ins",
+		"build":"rm -rf dist && webpack && npm run sync"
   },
   "devDependencies": {
     "@types/node": "15.6.1",
