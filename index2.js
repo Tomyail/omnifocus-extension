@@ -11,7 +11,7 @@ const currentUserName = (script) => {
 const example = async () => {
   const script = fs.readFileSync(__dirname + "/dist/test.omnijs", "utf-8");
   const userName = await currentUserName(script);
-  return userName
+  return userName;
 };
 
-example().then((s) => console.log(s));
+example().then((s) => console.log(JSON.stringify(s, null, 2)));

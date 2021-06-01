@@ -7,17 +7,19 @@
   }
 
   app.includeStandardAdditions = true;
-  const note = app.findNotes("foobar_test")[0];
-  return {
-    sourceURL: note.sourceURL(),
-    noteLink: note.noteLink(),
-    title: note.title(),
-    attachments_mine: note.attachments()[0].mime(),
-    attachments_sourceURL: note.attachments()[0].sourceURL(),
-    attachments_filename: note.attachments()[0].filename(),
-    enmlContent:note.enmlContent(),
-    htmlContent: note.htmlContent(),
-  };
+  const notes = app.findNotes("created:day");
+
+  return notes.map((note) => {
+    return {
+      // keys: Object.keys(note),
+      // sourceURL: note.sourceURL(),
+      noteLink: note.noteLink(),
+      title: note.title(),
+      tags: note.tags().map((tag) => ({ name: tag.name() })),
+      creationDate: note.creationDate(),
+      modificationDate: note.modificationDate(),
+    };
+  });
 
   // const note = app.createNote({
   //   title: "foo",
