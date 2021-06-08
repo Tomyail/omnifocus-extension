@@ -1,0 +1,29 @@
+{
+  "name": "@tomyail-workflow/omni-shared",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "xuexin.li <xuexin.li@alo7.com>",
+  "homepage": "https://github.com/Tomyail/omnifocus-extension#readme",
+  "license": "MIT",
+  "main": "lib/omni-shared.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://repos.saybot.net/repository/alo7npm/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomyail/omnifocus-extension.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Tomyail/omnifocus-extension/issues"
+  }
+}
