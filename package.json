@@ -11,7 +11,7 @@
     "build": "rm -rf dist && webpack && npm run sync"
   },
   "devDependencies": {
-    "@types/evernote": "^2.0.1",
+    "@types/evernote": "2.0.1",
     "@types/node": "15.6.1",
     "docsify": "4.12.1",
     "klaw-sync": "6.0.0",
