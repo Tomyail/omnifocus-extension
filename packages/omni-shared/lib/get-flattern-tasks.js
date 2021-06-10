@@ -1,3 +1,9 @@
+/**
+ * 
+ * @template T
+ * @param {T[]} tasks 
+ * @returns {T[]}
+ */
 const getFlattenTasks = function (tasks) {
   return reduce(
     tasks.map((task) => getTasks(task)),

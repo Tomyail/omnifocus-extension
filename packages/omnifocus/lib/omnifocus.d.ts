@@ -26,9 +26,9 @@
 //   );
 // }
 
-// interface ObjectArray<T> extends Array<T> {
-//   byName(name: string): ?T;
-// }
+interface ObjectArray<T> extends Array<T> {
+  byName(name: string): ?T;
+}
 
 // interface Tags extends ObjectArray<Tag> {
 //   apply(f: Function): ?ApplyResult;
@@ -36,14 +36,17 @@
 //   readonly ending: TagChildInsertionLocation;
 // }
 
-// interface Task extends ActiveObject {
-//   //todo fixme
-//   new (name: string, position?: Task | Project): Task;
-//   static byParsingTransportText(text: string, singleTask?: boolean): Task[];
-//   static byIdentifier(identifier: string): Task[];
-//   taskNamed(name: string): ?Task;
-//   childNamed(name: string): ?Task;
-// }
+interface Task extends ActiveObject {
+  //todo fixme
+  new(name: string, position?: Task | Project): Task;
+  static byParsingTransportText(text: string, singleTask?: boolean): Task[];
+  static byIdentifier(identifier: string): Task[];
+  taskNamed(name: string): ?Task;
+  childNamed(name: string): ?Task;
+
+  dueDate: Date?;
+  flagged: boolean;
+}
 
 // interface Tag extends ActiveObject {
 //   new (name: string, position?: Tag | TagChildInsertionLocation): Tag;
@@ -89,10 +92,10 @@
 //   readonly all: TagStatus[];
 // }
 
-// interface ObjectIdentifier {
-//   readonly objectClass?: any;
-//   readonly primaryKey: string;
-// }
+interface ObjectIdentifier {
+  readonly objectClass?: any;
+  readonly primaryKey: string;
+}
 
 // interface Folder extends ActiveObject {}
 
@@ -100,9 +103,9 @@
 //   new (name: string, position?: POSITION): T;
 //   static byIdentifier(identifier: string): T[];
 // }
-// interface DatabaseObject {
-//   readonly id: ObjectIdentifier;
-// }
+interface DatabaseObject {
+  readonly id: ObjectIdentifier;
+}
 
 // interface DatedObject extends DatabaseObject {
 //   added: ?Date;
@@ -113,6 +116,15 @@
 //   active: boolean;
 //   readonly effectiveActive: boolean;
 // }
+
+
+export interface Selection {
+  allObjects: any[]
+  database: Database,
+  datebaseObjects: DatabaseObject[]
+
+  tasks: ObjectArray<Task>
+}
 
 interface Database {
   foo: string;
