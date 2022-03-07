@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "webpack": "^5.38.1",
-    "webpack-sources": "^2.3.0"
+    "webpack-sources": "^3.0.0"
   }
 }
