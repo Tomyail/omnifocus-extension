@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@types/evernote": "2.0.1",
-    "@types/node": "15.6.1",
+    "@types/node": "15.14.9",
     "docsify": "4.12.1",
     "klaw-sync": "6.0.0",
     "loader-utils": "2.0.0",
